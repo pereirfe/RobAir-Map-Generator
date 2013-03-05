@@ -1,30 +1,12 @@
 #include <stdio.h>
-#include <time.h>
-#include <sys/time.h>
 #include <stdlib.h>
+#include "config.h"
+#include "mapping.h"
 
-#define GRAY  195
-#define WHITE 254
-#define DIM_F 4000 
-
-#define MAX_IT 10.0
-
-#define SPEED_H 1 // m/s
-#define TIME_C_INIT 3 // s
-#define PIX_PER_M 100 // Example
-#define SECURITY_MARGIN 50 // in %
-#define PERSON_SIZE (PIX_PER_M*TIME_C_INIT*SPEED_H*(1+SECURITY_MARGIN)/100)
-#define PERSON_SIZE_RADIUS (PIX_PER_M*time_dyn*SPEED_H*(1+SECURITY_MARGIN)/100) 
-
-
-#define ADDR_MAP "map_test3.pgm"
-#define ADDR_POINTS "points.txt"
 
 double  time_dyn = TIME_C_INIT; // Time dynamic for calculus of size
 // Heuristic: TIME_C_INIT(t) >> time_dyn(t) for t > 0.
 // An adjustment may be necessary
-
-#define POINT_MAX 10 // Max number of coordinates that may be used to localize a person
 
 typedef struct{
   int x, y;
