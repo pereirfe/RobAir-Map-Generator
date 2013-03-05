@@ -45,11 +45,10 @@ int main(void){
   init_map_teamplate(fix);
   init_person_teamplate(person);
   srand(time(0));
-  printf("CLOCKS_PER_SEC = %d\n", CLOCKS_PER_SEC);
 
   tstart = time(0);
+
   for(i=0; i<MAX_IT; i++){
-    time_dyn = (double)((clk2.tv_sec + clk2.tv_usec/1000000.0) - (clk1.tv_sec + clk1.tv_usec/1000000.0));
     gettimeofday(&clk1, NULL);
     
     fill_points(points); // Get from a file // TO IMPLEMENT
@@ -58,12 +57,14 @@ int main(void){
       init_person_teamplate(person); 
     }
     
-    printf("PERSON_SIZE_RADIUS: %d -- time_dyn = %f\n", (int)PERSON_SIZE_RADIUS,time_dyn);
+    printf("PERSON_SIZE_RADIUS: %d -time_dyn = %f\n",(int)PERSON_SIZE_RADIUS,time_dyn);
     
     create_map(var, fix, person, points, POINT_MAX);
-    if(!(i%50)) printf("i: %d\n", i);
     gettimeofday(&clk2, NULL);
-  }
+
+    time_dyn = (double)((clk2.tv_sec + clk2.tv_usec/1000000.0) - (clk1.tv_sec + clk1.tv_usec/1000000.0));
+  
+}
   tend = time(0);
 
   total = difftime(tend, tstart);
