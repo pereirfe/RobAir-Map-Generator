@@ -12,8 +12,10 @@
 #define SPEED_H 1 // m/s
 #define TIME_C_INIT 3 // s
 #define PIX_PER_M 100 // Example
-#define PERSON_SIZE (PIX_PER_M*TIME_C_INIT*SPEED_H)
-#define PERSON_SIZE_RADIUS (PIX_PER_M*time_dyn*SPEED_H) 
+#define SECURITY_MARGIN 50 // in %
+#define PERSON_SIZE (PIX_PER_M*TIME_C_INIT*SPEED_H*(1+SECURITY_MARGIN)/100)
+#define PERSON_SIZE_RADIUS (PIX_PER_M*time_dyn*SPEED_H*(1+SECURITY_MARGIN)/100) 
+
 
 #define ADDR_MAP "map_test3.pgm"
 #define ADDR_POINTS "points.txt"
